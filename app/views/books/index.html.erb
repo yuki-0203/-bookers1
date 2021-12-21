@@ -9,19 +9,19 @@
     </tr>
   </thead>
 
-  <tbody>
-    <% @books.each do |book| %>
+<tbody>
+    <tr>
+     <% @books.each do |books| %>
       <tr>
-        <td><%= book.title %></td>
-        <td><%= book.body %></td>
-        <td><%= link_to 'Show', book, class: "show_#{book.id}" %></td>
-        <td><%= link_to 'Edit', edit_book_path, class: "edit_#{book.id}" %></td>
-        <td><%= link_to 'Destroy', book, method: :delete, data: { confirm: 'Are you sure?' }, class: "destroy_#{book.id}" %></td>
+        <td><%= books.title %></td>
+        <td><%= books.body %></td>
+         <td><%= link_to 'Show', book_path(books.id) %></td>
+        <td><%= link_to 'Edit', edit_book_path(books.id) %></td>
+        <td><%= link_to 'Destroy', books, method: :delete, data: { confirm: 'Are you sure?' }, class: "destroy_#{@book}" %></td>
       </tr>
     <% end %>
+    </tr>
   </tbody>
 </table>
 
-
-<h2>New book</h2>
 <%= render 'form' %>
